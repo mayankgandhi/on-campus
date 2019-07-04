@@ -31,3 +31,4 @@ Route.get('/post-an-event', 'EventController.userIndex');
 Route.get('/post-an-event/delete/:id', 'EventController.delete');
 Route.get('/post-an-event/edit/:id', 'EventController.edit');
 Route.post('/post-an-event/update/:id', 'EventController.update').validator('CreateEvent');
+Route.post('/post-an-event/', 'EventController.create').validator('CreateEvent');

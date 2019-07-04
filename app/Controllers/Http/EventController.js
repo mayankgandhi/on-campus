@@ -1,10 +1,9 @@
 'use strict'
 
-const Event = use('/app/Models/Event')
+const Event = use('App/Models/Event');
 
 class EventController {
     async home({view}) {
-
         // Fetch an event
         const events = await Event.all();
 
@@ -12,9 +11,9 @@ class EventController {
     }
     async userIndex({view, auth}) {
 
+        console.log('here');
         // Fetch all user's events
         const events = await auth.user.events().fetch();
-        console.log(events)
 
         return view.render('events', { events: events.toJSON() })
     }
