@@ -32,16 +32,15 @@ OnCampus - Post your Event
                   {{ getErrorFor('link') }}
               </span>
           @endif
-  
           <label for="description">Description</label>
+    
           <input type="text" name="description">
           @if(hasErrorFor('description'))
               <span>
                   {{ getErrorFor('description') }}
               </span>
           @endif
-  
-          <button type="submit">Submit an Event</button>
+          <button type="submit" class="btn btn-primary" >Submit an Event</button>
         </form>
     </div>
 

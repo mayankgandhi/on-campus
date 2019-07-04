@@ -14,10 +14,11 @@
     </title>
 </head>
 <body>
-    <header>
-        <a href="/" id="logo">OnCampus</a>
-        <nav>
+    <div>
+
+        <nav class="navbar navbar-light bg-light">
             <ul>
+                    <a href="/" id="logo">OnCampus</a>
                 @loggedIn
                     <li><a href="/events">All Events</a></li>
                     <li><a href="/post-an-event">My Events</a></li>
@@ -28,10 +29,9 @@
                 @endloggedIn
             </ul>
         </nav>
-    </header>
-
+    </div>
     <div class="container">
-        @!section('content')
+        @!section('content')        
     </div>
 </body>
 </html>
