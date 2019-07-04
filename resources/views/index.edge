@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Hello Adonis</title>
-  {{ style('style') }}
-</head>
-<body>
-  <section>
-    <div class="logo"></div>
-    <div class="title"></div>
-    <div class="subtitle">
-      <p>AdonisJs simplicity will make you feel confident about your code</p>
-      <p>
-        Don't know where to start? Read the <a href="https://adonisjs.com/docs">documentation</a>.
-      </p>
+@layout('main')
+
+@section('title')
+On-Campus - Post your Events 
+@endsection
+
+@section('content')
+  <h1>All Events</h1>
+  <div class="event-container">
+    <div class="blank"></div>
+    <div class="event-info">
+      <h3>Event Title</h3>
+      <p>Future event description can go here.</p>
     </div>
-  </section>
-</body>
-</html>
+  </div>
+@endsection
