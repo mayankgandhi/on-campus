@@ -29,7 +29,8 @@ Route.get('/logout', async ({ auth, response }) => {
     return response.redirect('/');
 });
 
-Route.get('/post-an-event', 'EventController.userIndex');
+Route.get('/user/events', 'EventController.userIndex');
+Route.get('/post-an-event', 'EventController.static_create');
 Route.get('/post-an-event/delete/:id', 'EventController.delete');
 Route.get('/post-an-event/edit/:id', 'EventController.edit');
 Route.post('/post-an-event/update/:id', 'EventController.update').validator('CreateEvent');

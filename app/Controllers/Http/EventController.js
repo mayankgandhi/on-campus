@@ -21,7 +21,12 @@ class EventController {
         // Fetch all user's events
         const events = await auth.user.events().fetch();
 
-        return view.render('events', { events: events.toJSON() })
+        return view.render('myevents', { events: events.toJSON() })
+    }
+
+    async static_create({view}) {
+
+        return view.render('postEvent');
     }
 
     async create({ request, response, session, auth}) {

@@ -43,19 +43,4 @@ OnCampus - Post your Event
           <button type="submit" class="btn btn-primary" >Submit an Event</button>
         </form>
     </div>
-
-<h2>My Events</h2>
-<div class="card-deck">
-    @each(event in events)
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-    <h5 class="card-title"><a href="{{event.link}}">{{ event.title }}</a></h5>
-      <p class="card-text">{{ event.description }}</p>
-      <a class="btn btn-primary" href="{{ route('EventController.delete', { id: event.id }) }}">Delete</a>
-      <a class="btn btn-primary" href="{{ route('EventController.edit', { id: event.id }) }}">Edit</a>
-    </div>
-  </div>
-  @endeach
-</div>
 @endsection
