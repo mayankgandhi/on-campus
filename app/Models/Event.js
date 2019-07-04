@@ -4,6 +4,10 @@
 const Model = use('Model')
 
 class Event extends Model {
+    user()
+    {
+        return this.hasMany('App/Models/User');
+    }
 }
 
 module.exports = Event;

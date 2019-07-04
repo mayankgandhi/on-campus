@@ -17,7 +17,6 @@ JobPostr - Login
     @endif
       <form action="{{ route('UserController.login') }}" method="POST">
         {{ csrfField() }}
-
         <label for="email">Email</label>
         <input type="email" name="email" value="{{ old('email', '') }}">
         @if(hasErrorFor('email'))
@@ -25,7 +24,6 @@ JobPostr - Login
                 {{ getErrorFor('email') }}
             </span>
         @endif
-
         <label for="password">Password</label>
         <input type="password" name="password">
         @if(hasErrorFor('password'))
@@ -33,8 +31,7 @@ JobPostr - Login
                 {{ getErrorFor('password') }}
             </span>
         @endif
-
-        <button type="submit">Login now</button>
+        <button type="submit" class="btn btn-primary">Login now</button>
       </form>
   </div>
 @endsection

@@ -1,0 +1,26 @@
+@layout('main')
+
+@section('title')
+OnCampus - Post your Event
+@endsection
+
+@section('extracss')
+{{ style('forms') }}
+@endsection
+
+@section('content')
+<h2>All Events</h2>
+<div class="card-deck">
+@each(event in events)
+<div class="card" style="width: 18rem;" style="flex">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+    <h5 class="card-title"><a href="{{event.link}}">{{ event.title }}</a></h5>
+      <p class="card-text">{{ event.description }}</p>
+      <a class="btn btn-primary" href="{{ route('EventController.delete', { id: event.id }) }}">Delete</a>
+      <a class="btn btn-primary" href="{{ route('EventController.edit', { id: event.id }) }}">Edit</a>
+    </div>
+  </div>
+  @endeach
+</div>
+@endsection

@@ -1,22 +1,32 @@
 'use strict'
 
-const Event = use('/app/Models/Event')
+const Event = use('App/Models/Event');
 
 class EventController {
     async home({view}) {
 
-        // Fetch an event
+        return view.render('homepage');
+    }
+
+    //Show all the events created by all users
+    async showAll({view, auth})
+    {
         const events = await Event.all();
 
-        return view.render('index', { events: events.toJSON() })
+        return view.render('allevents', { events: events.toJSON() })
     }
+
     async userIndex({view, auth}) {
 
         // Fetch all user's events
         const events = await auth.user.events().fetch();
-        console.log(events)
 
-        return view.render('events', { events: events.toJSON() })
+        return view.render('myevents', { events: events.toJSON() })
+    }
+
+    async static_create({view}) {
+
+        return view.render('postEvent');
     }
 
     async create({ request, response, session, auth}) {
