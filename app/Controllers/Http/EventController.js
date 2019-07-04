@@ -11,7 +11,6 @@ class EventController {
     }
     async userIndex({view, auth}) {
 
-        console.log('here');
         // Fetch all user's events
         const events = await auth.user.events().fetch();
 
