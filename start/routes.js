@@ -27,6 +27,7 @@ Route.get('/logout', async ({ auth, response }) => {
     return response.redirect('/');
 });
 Route.post('/login', 'UserController.login').validator('LoginUser');
+
 Route.get('/post-an-event', 'EventController.userIndex');
 Route.get('/post-an-event/delete/:id', 'EventController.delete');
 Route.get('/post-an-event/edit/:id', 'EventController.edit');
