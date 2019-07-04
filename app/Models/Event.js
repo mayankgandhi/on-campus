@@ -4,9 +4,9 @@
 const Model = use('Model')
 
 class Event extends Model {
-    events() {
-        return this.hasMany('App/Models/Event');
-      }
+    user()
+    {
+        return this.hasMany('App/Models/User');
+    }
 }
-
 module.exports = Event;

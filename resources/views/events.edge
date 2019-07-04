@@ -46,17 +46,17 @@ OnCampus - Post your Event
     </div>
 
 <h2>My Events</h2>
-  @each(event in events)
-  <div class="event-container2">
-    <div class="blank"></div>
-    <div class="event-info">
-      <h3><a href="{{ event.link }}">{{ event.title }}</a></h3>
-      <p>{{ event.description }}</p>
-      <ul>
-          <li><a href="{{ route('EventController.delete', { id: event.id }) }}">Delete</a></li>
-          <li><a href="{{ route('EventController.edit', { id: event.id }) }}">Edit</a></li>
-      </ul>
+<div class="card-deck">
+    @each(event in events)
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+    <h5 class="card-title"><a href="{{event.link}}">{{ event.title }}</a></h5>
+      <p class="card-text">{{ event.description }}</p>
+      <a class="btn btn-primary" href="{{ route('EventController.delete', { id: event.id }) }}">Delete</a>
+      <a class="btn btn-primary" href="{{ route('EventController.edit', { id: event.id }) }}">Edit</a>
     </div>
   </div>
   @endeach
+</div>
 @endsection

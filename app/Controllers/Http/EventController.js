@@ -4,11 +4,18 @@ const Event = use('App/Models/Event');
 
 class EventController {
     async home({view}) {
-        // Fetch an event
+
+        return view.render('homepage');
+    }
+
+    //Show all the events created by all users
+    async showAll({view, auth})
+    {
         const events = await Event.all();
 
-        return view.render('index', { events: events.toJSON() })
+        return view.render('allevents', { events: events.toJSON() })
     }
+
     async userIndex({view, auth}) {
 
         // Fetch all user's events
