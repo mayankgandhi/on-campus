@@ -1,0 +1,49 @@
+@layout('layouts.main')
+
+@section('title')
+OnCampus - Edit your Event
+@endsection
+
+@section('extracss')
+{{ style('forms') }}
+@endsection
+
+@section('content')
+  <h1>Edit Event</h1>
+
+
+  <div class="event-container">
+    @if(flashMessage('message'))
+        <span>{{ flashMessage('message') }}</span>
+    @endif
+        <form action="{{ route('EventController.update', { id: event.id }) }}" method="POST">
+          {{ csrfField() }}
+  
+          <label for="title">Event Title</label>
+          <input type="text" name="title" value="{{ event.title }}">
+          @if(hasErrorFor('title'))
+              <span>
+                  {{ getErrorFor('title') }}
+              </span>
+          @endif
+  
+          <label for="link">Link URL</label>
+          <input type="text" name="link" value="{{ event.link }}">
+          @if(hasErrorFor('link'))
+              <span>
+                  {{ getErrorFor('link') }}
+              </span>
+          @endif
+  
+          <label for="description">Description</label>
+          <input type="text" name="description" value="{{ event.description }}">
+          @if(hasErrorFor('description'))
+              <span>
+                  {{ getErrorFor('description') }}
+              </span>
+          @endif
+  
+          <button type="submit">Update Event</button><br>
+        </form>
+    </div>
+@endsection

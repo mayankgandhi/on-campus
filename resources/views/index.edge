@@ -6,11 +6,14 @@ On-Campus - Post your Events
 
 @section('content')
   <h1>All Events</h1>
+  @each(job in events)
   <div class="event-container">
     <div class="blank"></div>
-    <div class="event-info">
-      <h3>Event Title</h3>
-      <p>Future event description can go here.</p>
+    <div class="job-info">
+      <h3><a href="{{ job.link }}">{{ job.title }}</a></h3>
+      <p>{{ job.description }}</p>
     </div>
   </div>
+  @endeach
 @endsection
+

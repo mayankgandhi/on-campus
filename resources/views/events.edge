@@ -1,0 +1,63 @@
+@layout('layouts.main')
+
+@section('title')
+OnCampus - Post your Event
+@endsection
+
+@section('extracss')
+{{ style('forms') }}
+@endsection
+
+@section('content')
+  <h1>Post an Event</h1>
+  <div class="event-container">
+    @if(flashMessage('message'))
+        <span>{{ flashMessage('message') }}</span>
+    @endif
+        <form action="{{ route('EventController.create') }}" method="POST">
+          {{ csrfField() }}
+  
+          <label for="title">Event Title</label>
+          <input type="text" name="title" value="{{ old('title', '') }}">
+          @if(hasErrorFor('title'))
+              <span>
+                  {{ getErrorFor('title') }}
+              </span>
+          @endif
+  
+          <label for="link">Link URL</label>
+          <input type="text" name="link" value="{{ old('link', '') }}">
+          @if(hasErrorFor('link'))
+              <span>
+                  {{ getErrorFor('link') }}
+              </span>
+          @endif
+  
+          <label for="description">Description</label>
+          <input type="text" name="description">
+          @if(hasErrorFor('description'))
+              <span>
+                  {{ getErrorFor('description') }}
+              </span>
+          @endif
+  
+          <button type="submit">Submit an Event</button>
+        </form>
+    </div>
+
+<h2>My Events</h2>
+
+  @each(event in events)
+  <div class="event-container2">
+    <div class="blank"></div>
+    <div class="event-info">
+      <h3><a href="{{ event.link }}">{{ event.title }}</a></h3>
+      <p>{{ event.description }}</p>
+      <ul>
+          <li><a href="{{ route('EventController.delete', { id: event.id }) }}">Delete</a></li>
+          <li><a href="{{ route('EventController.edit', { id: event.id }) }}">Edit</a></li>
+      </ul>
+    </div>
+  </div>
+  @endeach
+@endsection
